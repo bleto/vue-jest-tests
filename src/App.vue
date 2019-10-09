@@ -1,28 +1,36 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <Button
+            color="success"
+            title="Doolary"
+            @click.native="() => myAction()">
+            <template #prepend>
+                $
+            </template>
+        </Button>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import Button from '@/components/Buttons/Button';
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld,
-  },
+    name: 'app',
+    components: {
+        Button,
+    },
+    methods: {
+        myAction() {
+            console.log('test');
+        },
+    },
 };
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    color: #2c3e50;
+    text-align: center;
+    margin-top: 60px;
 }
 </style>
