@@ -9,7 +9,7 @@ import {
     getIcon,
     getParamsOptionsForType,
     getParamsKeyForType,
-} from '~/models/attributes/AttributeTypes';
+} from '@/models/attributes/AttributeTypes';
 
 describe('AttributeTypes/hasOptions', () => {
     it('Attribute has options', () => {

@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --port 3000",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "test:cover": "vue-cli-service test:unit --coverage --u"
+    "test:nocache": "vue-cli-service test:unit --no-cache",
+    "test:cover": "vue-cli-service test:unit --coverage"
   },
   "dependencies": {
     "core-js": "^2.6.5",

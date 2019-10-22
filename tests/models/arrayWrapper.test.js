@@ -10,7 +10,7 @@ import {
     insertValueAtIndex,
     lastElementInList,
     firstElementInList,
-} from '~/models/arrayWrapper';
+} from '@/models/arrayWrapper';
 
 
 describe('arrayWrapper/isArrayEqualToArray', () => {

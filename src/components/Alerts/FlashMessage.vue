@@ -17,7 +17,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import Alert from '~/components/Alerts/Alert';
+import Alert from '@/components/Alerts/Alert';
 
 export default {
     name: 'FlashMessage',

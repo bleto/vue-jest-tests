@@ -1,11 +1,12 @@
 <template>
     <div id="app">
+        <h1>{{ text }}</h1>
         <Button
             color="success"
-            title="Doolary"
+            title="Poka alerta"
             @click.native="() => myAction()">
             <template #prepend>
-                $
+                :|
             </template>
         </Button>
         <FlashMessage />
@@ -13,17 +14,26 @@
 </template>
 
 <script>
-import Button from '~/components/Buttons/Button';
+import { mapActions } from 'vuex';
+import Button from '@/components/Buttons/Button';
 
 export default {
-    name: 'app',
+    name: 'App',
     components: {
         Button,
-        FlashMessage: () => import('~/components/Alerts/FlashMessage'),
+        FlashMessage: () => import('@/components/Alerts/FlashMessage'),
+    },
+    data() {
+        return {
+            text: 'Hello',
+        };
     },
     methods: {
+        ...mapActions('alerts', [
+            'addAlert',
+        ]),
         myAction() {
-            console.log('test');
+            this.addAlert({ type: 'success', message: 'Elo !' });
         },
     },
 };

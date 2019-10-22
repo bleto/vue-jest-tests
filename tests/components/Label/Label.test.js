@@ -3,7 +3,7 @@
  * See LICENSE for license details.
  */
 import { shallowMount } from '@vue/test-utils';
-import Label from '~/components/Label/Label.vue';
+import Label from '@/components/Label/Label.vue';
 
 
 describe('Label/Label', () => {

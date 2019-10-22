@@ -3,7 +3,7 @@
  * See LICENSE for license details.
  */
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import Button from '~/components/Buttons/Button';
+import Button from '@/components/Buttons/Button';
 
 const localVue = createLocalVue();
 

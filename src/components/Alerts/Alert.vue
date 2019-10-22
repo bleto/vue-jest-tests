@@ -9,17 +9,19 @@
             v-text="alert.message" />
         <Button
             fab
-            color="transparent">
+            color="transparent"
+            @click.native="() => removeAlert(alert)">
             <template #prepend>
-                $
+                X
             </template>
         </Button>
     </div>
 </template>
 
 <script>
-import { toCapitalize } from '~/models/stringWrapper';
-import Button from '~/components/Buttons/Button';
+import { mapActions } from 'vuex';
+import { toCapitalize } from '@/models/stringWrapper';
+import Button from '@/components/Buttons/Button';
 
 export default {
     name: 'Alert',
@@ -40,6 +42,11 @@ export default {
         capitalizedAlertType() {
             return toCapitalize(this.alert.type);
         },
+    },
+    methods: {
+        ...mapActions('alerts', [
+            'removeAlert',
+        ]),
     },
 };
 </script>

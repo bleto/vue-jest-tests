@@ -1,6 +1,6 @@
 /** @module attributes/AttributeTypes */
 
-import AttributeTypes from '~/defaults/attributes/main';
+import AttributeTypes from '@/defaults/attributes/main';
 
 /**
 * Check is attribute has options
