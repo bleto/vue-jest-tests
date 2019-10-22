@@ -4,13 +4,12 @@
  */
 import {
     getKeyByValue,
+    getNestedObjectByKeyWithValue,
     objectToArray,
     getValueByKey,
     getKeysByValues,
     getValuesByKeys,
     getMaxKeyValue,
-    lastElementInList,
-    firstElementInList,
     isEmpty,
     removeFromObjectByKey,
 } from '~/models/objectWrapper';
@@ -18,7 +17,7 @@ import {
 const obj = { test: 1, jest: 2 };
 
 describe('objectWrapper/getKeyByValue', () => {
-    it('Get key by value is isset', () => {
+    it('Get key by value when value is exist', () => {
         const fun = getKeyByValue(obj, 1);
         expect(fun).toBe('test');
     });
@@ -29,12 +28,36 @@ describe('objectWrapper/getKeyByValue', () => {
     });
 });
 
+describe('objectWrapper/getNestedObjectByKeyWithValue', () => {
+    const localObj = {
+        test: [
+            { x: 'xx', y: 'yy' },
+            { z: 'zz', q: 'qq' },
+        ],
+        jest: [
+            { a: 'aa', b: 'bb' },
+            { c: 'cc', d: 'dd' },
+        ],
+    };
+
+    it('Get nested object by key and value - exist object ', () => {
+        const fun = getNestedObjectByKeyWithValue(localObj, 'z', 'zz');
+        expect(fun).toEqual({ z: 'zz', q: 'qq' });
+    });
+
+    it('Get nested object by key and value - does not exist object ', () => {
+        const fun = getNestedObjectByKeyWithValue(localObj, 'g', 'gg');
+        expect(fun).toEqual(null);
+    });
+});
+
 describe('objectWrapper/objectToArray', () => {
     it('Prepare array from the object', () => {
         const fun = objectToArray(obj);
         expect(fun).toEqual([{ title: 1, value: 'test' }, { title: 2, value: 'jest' }]);
     });
 });
+
 
 describe('objectWrapper/getValueByKey', () => {
     it('Get value by key', () => {
@@ -89,33 +112,6 @@ describe('objectWrapper/getMaxKeyValue', () => {
     });
 });
 
-describe('objectWrapper/lastElementInList', () => {
-    it('Get last element from array', () => {
-        const array = ['a', 't', 'p', 'q'];
-        const fun = lastElementInList(array);
-        expect(fun).toBe('q');
-    });
-
-    it('Get null from empty array', () => {
-        const array = [];
-        const fun = lastElementInList(array);
-        expect(fun).toBeNull();
-    });
-});
-
-describe('objectWrapper/firstElementInList', () => {
-    it('Get last element from array', () => {
-        const array = ['a', 't', 'p', 'q'];
-        const fun = firstElementInList(array);
-        expect(fun).toBe('a');
-    });
-
-    it('Get null from empty array', () => {
-        const array = [];
-        const fun = firstElementInList(array);
-        expect(fun).toBeNull();
-    });
-});
 
 describe('objectWrapper/isEmpty', () => {
     it('Get false when object is not empty', () => {

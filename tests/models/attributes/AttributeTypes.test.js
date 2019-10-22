@@ -6,12 +6,9 @@ import {
     hasOptions,
     hasPlaceholder,
     hasParams,
-    hasParamsWithMultiSelect,
     getIcon,
     getParamsOptionsForType,
     getParamsKeyForType,
-    getTypeElement,
-    getTypeTranslation,
 } from '~/models/attributes/AttributeTypes';
 
 describe('AttributeTypes/hasOptions', () => {
@@ -49,18 +46,6 @@ describe('AttributeTypes/hasParams', () => {
     });
 });
 
-describe('AttributeTypes/hasParamsWithMultiSelect', () => {
-    it('Attribute has params with multiselect', () => {
-        const fun = hasParamsWithMultiSelect('IMAGE');
-        expect(fun).toBeTruthy();
-    });
-
-    it('Attribute has not params with multiselect', () => {
-        const fun = hasParamsWithMultiSelect('TEXT');
-        expect(fun).toBeFalsy();
-    });
-});
-
 describe('AttributeTypes/getIcon', () => {
     it.each([
         ['TEXT', 'Text'],
@@ -77,27 +62,6 @@ describe('AttributeTypes/getIcon', () => {
         ' Set type (%s) get class (%s)',
         (type, expected) => {
             const fun = getIcon(type);
-            expect(fun).toBe(expected);
-        },
-    );
-});
-
-describe('AttributeTypes/getTypeTranslation', () => {
-    it.each([
-        ['TEXT', 'TEXT'],
-        ['TEXTAREA', 'TEXT AREA'],
-        ['NUMERIC', 'NUMERIC'],
-        ['SELECT', 'SELECT'],
-        ['MULTI_SELECT', 'MULTI SELECT'],
-        ['IMAGE', 'IMAGE'],
-        ['PRICE', 'PRICE'],
-        ['UNIT', 'UNIT'],
-        ['DATE', 'DATE'],
-        ['OTHER_TYPE', ''],
-    ])(
-        ' Set type (%s) get class (%s)',
-        (type, expected) => {
-            const fun = getTypeTranslation(type);
             expect(fun).toBe(expected);
         },
     );
@@ -138,27 +102,6 @@ describe('AttributeTypes/getParamsKeyForType', () => {
         ' Set type (%s) and get params key (%s)',
         (type, expected) => {
             const fun = getParamsKeyForType(type);
-            expect(fun).toBe(expected);
-        },
-    );
-});
-
-describe('AttributeTypes/getTypeElement', () => {
-    it.each([
-        ['TEXT', 'SingleLine'],
-        ['TEXTAREA', 'MultiLine'],
-        ['NUMERIC', 'SingleLine'],
-        ['SELECT', 'Options'],
-        ['MULTI_SELECT', 'Options'],
-        ['IMAGE', 'Image'],
-        ['PRICE', 'SingleLine'],
-        ['UNIT', 'SingleLine'],
-        ['DATE', 'Date'],
-        ['OTHER_TYPE', 'SingleLine'],
-    ])(
-        ' Set type (%s) and get params key (%s)',
-        (type, expected) => {
-            const fun = getTypeElement(type);
             expect(fun).toBe(expected);
         },
     );

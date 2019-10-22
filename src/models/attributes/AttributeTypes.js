@@ -1,14 +1,23 @@
-/*
- * Copyright © Bold Brand Commerce Sp. z o.o. All rights reserved.
- * See LICENSE for license details.
- */
+/** @module attributes/AttributeTypes */
 
-import { AttributeTypes } from '~/defaults/attributes/main';
+import AttributeTypes from '~/defaults/attributes/main';
 
+/**
+* Check is attribute has options
+* @function
+* @param {string} type
+* @returns {boolean}
+*/
 export function hasOptions(type) {
     return type === AttributeTypes.SELECT || type === AttributeTypes.MULTI_SELECT;
 }
 
+/**
+* Check is attribute has placeholder
+* @function
+* @param {string} type
+* @returns {boolean}
+*/
 export function hasPlaceholder(type) {
     return (
         type === AttributeTypes.TEXT
@@ -17,6 +26,12 @@ export function hasPlaceholder(type) {
     );
 }
 
+/**
+* Check is attribute has params
+* @function
+* @param {string} type
+* @returns {boolean}
+*/
 export function hasParams(type) {
     return (
         type === AttributeTypes.IMAGE
@@ -26,10 +41,14 @@ export function hasParams(type) {
     );
 }
 
-export function hasParamsWithMultiSelect(type) {
-    return type === AttributeTypes.IMAGE;
-}
-
+/**
+* Returns options for attribute type
+* @function
+* @param {string} type
+* @param {Object} data
+* @returns {Array} Array with options
+* @description TEST - Try use it.each
+*/
 export function getParamsOptionsForType(type, data) {
     switch (type) {
     case AttributeTypes.UNIT:
@@ -45,6 +64,13 @@ export function getParamsOptionsForType(type, data) {
     }
 }
 
+/**
+* Returns icon name for attribute type
+* @function
+* @param {string} type
+* @returns {string}
+* @description TEST - Try use it.each
+*/
 export function getIcon(type) {
     switch (type) {
     case AttributeTypes.TEXT:
@@ -70,31 +96,13 @@ export function getIcon(type) {
     }
 }
 
-export function getTypeTranslation(type) {
-    switch (type) {
-    case AttributeTypes.TEXT:
-        return 'TEXT';
-    case AttributeTypes.TEXTAREA:
-        return 'TEXT AREA';
-    case AttributeTypes.NUMERIC:
-        return 'NUMERIC';
-    case AttributeTypes.SELECT:
-        return 'SELECT';
-    case AttributeTypes.MULTI_SELECT:
-        return 'MULTI SELECT';
-    case AttributeTypes.IMAGE:
-        return 'IMAGE';
-    case AttributeTypes.PRICE:
-        return 'PRICE';
-    case AttributeTypes.UNIT:
-        return 'UNIT';
-    case AttributeTypes.DATE:
-        return 'DATE';
-    default:
-        return '';
-    }
-}
-
+/**
+* Returns params key for attribute type
+* @function
+* @param {string} type
+* @returns {string}
+* @description TEST - Try use it.each
+*/
 export function getParamsKeyForType(type) {
     switch (type) {
     case AttributeTypes.DATE:
@@ -107,30 +115,5 @@ export function getParamsKeyForType(type) {
         return 'formats';
     default:
         return '';
-    }
-}
-
-export function getTypeElement(type) {
-    switch (type) {
-    case AttributeTypes.TEXT:
-        return 'SingleLine';
-    case AttributeTypes.TEXTAREA:
-        return 'MultiLine';
-    case AttributeTypes.NUMERIC:
-        return 'SingleLine';
-    case AttributeTypes.SELECT:
-        return 'Options';
-    case AttributeTypes.MULTI_SELECT:
-        return 'Options';
-    case AttributeTypes.IMAGE:
-        return 'Image';
-    case AttributeTypes.PRICE:
-        return 'SingleLine';
-    case AttributeTypes.UNIT:
-        return 'SingleLine';
-    case AttributeTypes.DATE:
-        return 'Date';
-    default:
-        return 'SingleLine';
     }
 }

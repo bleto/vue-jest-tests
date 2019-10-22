@@ -8,16 +8,18 @@
                 $
             </template>
         </Button>
+        <FlashMessage />
     </div>
 </template>
 
 <script>
-import Button from '@/components/Buttons/Button';
+import Button from '~/components/Buttons/Button';
 
 export default {
     name: 'app',
     components: {
         Button,
+        FlashMessage: () => import('~/components/Alerts/FlashMessage'),
     },
     methods: {
         myAction() {
