@@ -1,8 +1,4 @@
-/*
- * Copyright © Bold Brand Commerce Sp. z o.o. All rights reserved.
- * See LICENSE for license details.
- */
-import { shallowMount, createLocalVue } from '@vue/test-utils';
+import { mount, createLocalVue } from '@vue/test-utils';
 import { Store } from 'vuex-mock-store';
 import App from '@/App';
 
@@ -11,14 +7,18 @@ const store = new Store({
     state: {
         alerts: [],
     },
+    dispatch: jest.fn(),
 });
 const mocks = {
     $store: store,
 };
+
+afterEach(() => store.reset());
+
 describe('App', () => {
     let wrapper;
     beforeEach(() => {
-        wrapper = shallowMount(App, {
+        wrapper = mount(App, {
             localVue,
             mocks,
         });
@@ -32,7 +32,12 @@ describe('App', () => {
         expect(App.name).toEqual('App');
     });
 
-    it('Checks text content to Hello ', () => {
-        expect(wrapper.text()).toBe('Hello');
+    it('Checks store action click event', () => {
+        const btn = wrapper.find('.btn');
+
+        expect(btn.exists()).toBe(true);
+        btn.trigger('click');
+        expect(store.dispatch).toHaveBeenCalledWith('alerts/addAlert', { message: 'Elo !', type: 'success' });
+        expect(wrapper.vm.$store.dispatch).toHaveBeenCalledWith('alerts/addAlert', { message: 'Elo !', type: 'success' });
     });
 });

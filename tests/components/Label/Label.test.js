@@ -1,7 +1,3 @@
-/*
- * Copyright © Bold Brand Commerce Sp. z o.o. All rights reserved.
- * See LICENSE for license details.
- */
 import { shallowMount } from '@vue/test-utils';
 import Label from '@/components/Label/Label.vue';
 

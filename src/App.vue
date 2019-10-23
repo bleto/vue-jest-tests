@@ -10,17 +10,20 @@
             </template>
         </Button>
         <FlashMessage />
+        <RandomNumbers />
     </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
 import Button from '@/components/Buttons/Button';
+import RandomNumbers from '@/components/Other/RandomNumbers';
 
 export default {
     name: 'App',
     components: {
         Button,
+        RandomNumbers,
         FlashMessage: () => import('@/components/Alerts/FlashMessage'),
     },
     data() {
