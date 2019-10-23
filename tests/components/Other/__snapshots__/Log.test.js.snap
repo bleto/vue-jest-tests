@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Other/Log Button are inserted in a Log component 1`] = `<div><button aria-label="Test" class="btn theme theme--light primary"> <span class="typo-btn l-spacing--half">Test</span></button></div>`;
-
-exports[`Other/Log Checks store action click event 1`] = `<div><button aria-label="Test" class="btn theme theme--light primary"> <span class="typo-btn l-spacing--half">Test</span></button></div>`;

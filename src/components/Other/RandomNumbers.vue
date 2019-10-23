@@ -1,14 +1,6 @@
 <template>
     <div>
         <span class="number">{{ randomNumber }}</span>
-        <Log #default="{logClick, logInfo}">
-            <Button
-                class="log"
-                color="success"
-                :title="`Show log - ${logInfo}`"
-                @click.native="logClick">
-            </Button>
-        </Log>
         <Button
             class="set-random"
             color="success"
@@ -19,13 +11,11 @@
 </template>
 <script>
 import Button from '@/components/Buttons/Button';
-import Log from '@/components/Other/Log';
 
 export default {
     name: 'RandomNumbers',
     components: {
         Button,
-        Log,
     },
     props: {
         min: {
