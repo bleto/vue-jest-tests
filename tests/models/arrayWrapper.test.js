@@ -117,6 +117,12 @@ describe('arrayWrapper/sumIntegers', () => {
 
         expect(result).toEqual(0);
     });
+
+    it('Passed empty value', () => {
+        const result = sumIntegers();
+
+        expect(result).toEqual(0);
+    });
 });
 
 describe('arrayWrapper/insertValueAtIndex', () => {

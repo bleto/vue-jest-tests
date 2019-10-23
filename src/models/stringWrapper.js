@@ -45,7 +45,7 @@ export function getUUID() {
 // Methods that aren't really usefull but they do things for test
 
 /**
- * Wave
+ * Human wave
  * @function
  * @param {string} word
  * @returns {Array} Array with transformed strings
@@ -65,7 +65,7 @@ export const wave = word => [...word].map(
 * @returns {string} String incremented
 * @description Function which increments a string, to create a new string.
 * If the string already ends with a number, the number should be incremented by 1
-* If the string does not end with a number. the number 1 should be appended to the new string.
+* If the string does not end with a number, the number 1 should be appended to the new string.
 * Exp: foobar000 -> foobar001
 */
 export function incrementString(str) {

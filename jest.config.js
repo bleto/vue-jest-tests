@@ -22,5 +22,4 @@ module.exports = {
     testMatch: [
         '**/tests/**/*.(test|spec).(js|jsx|ts|tsx)|**/__tests__/*.(test|spec).(js|jsx|ts|tsx)',
     ],
-    testURL: 'http://localhost/',
 };

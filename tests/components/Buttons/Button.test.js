@@ -15,6 +15,7 @@ describe('Buttons/Button', () => {
     });
     it('Component is rendered', () => {
         expect(wrapper.is(Button)).toBe(true);
+        expect(wrapper.isVueInstance()).toBeTruthy();
     });
 
     it('Component is named well', () => {

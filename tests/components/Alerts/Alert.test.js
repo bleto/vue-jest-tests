@@ -21,6 +21,7 @@ describe('Alert', () => {
 
     it('Component is rendered', () => {
         expect(wrapper.is(Alert)).toBe(true);
+        expect(wrapper.isVueInstance()).toBeTruthy();
     });
 
     it('Component is named well', () => {
@@ -29,15 +30,6 @@ describe('Alert', () => {
     });
 
     describe('Info Alert', () => {
-        beforeEach(() => {
-            wrapper.setProps({
-                alert: {
-                    id: 1,
-                    type: 'info',
-                    message: 'Ya, know...',
-                },
-            });
-        });
 
         it('Alert has proper class', () => {
             expect(wrapper.vm.typeClass).toBe('alert--info');

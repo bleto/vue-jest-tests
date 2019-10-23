@@ -3,7 +3,6 @@ import { Store } from 'vuex-mock-store';
 import FlashMessage from '@/components/Alerts/FlashMessage.vue';
 
 const localVue = createLocalVue();
-
 const store = new Store({
     state: {
         alerts: [
@@ -18,6 +17,7 @@ const store = new Store({
 const mocks = {
     $store: store,
 };
+
 afterEach(() => store.reset());
 describe('Alerts/FlashMessage', () => {
     let wrapper;
@@ -32,6 +32,7 @@ describe('Alerts/FlashMessage', () => {
 
     it('Component is rendered', () => {
         expect(wrapper.is(FlashMessage)).toBe(true);
+        expect(wrapper.isVueInstance()).toBeTruthy();
     });
 
     it('Component is named well', () => {

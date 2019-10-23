@@ -1,7 +1,7 @@
 /** @module arrayWrapper */
 
 /**
-* Check is arrays equal
+* Check if arrays are equal
 * @function
 * @param {Array} arr1
 * @param {Array} arr2
@@ -10,10 +10,9 @@
 export function isArrayEqualToArray(arr1, arr2) {
     const { length: arr1Length } = arr1;
     const { length: arr2Length } = arr2;
+    let isEqual = true;
 
     if (arr1Length !== arr2Length) return false;
-
-    let isEqual = true;
 
     for (let i = 0; i < arr1Length; i += 1) {
         if (arr2.indexOf(arr1[i]) === -1) {
@@ -25,7 +24,7 @@ export function isArrayEqualToArray(arr1, arr2) {
 }
 
 /**
-* Returns an array with new item with index
+* Returns an array with new value at index
 * @function
 * @param {Array} array
 * @param {*} value
@@ -41,7 +40,7 @@ export function insertValueAtIndex(array, value, index) {
 }
 
 /**
-* Returns an array without item with index
+* Returns an array without item at index
 * @function
 * @param {Array} array
 * @param {number} index
@@ -57,17 +56,13 @@ export function removeValueAtIndex(array, index) {
 * @param {Array} array
 * @returns {number} Sum
 */
-export function sumIntegers(arr) {
-    if (!Array.isArray(arr)) return 0;
-
-    const { length } = arr;
-    let value = 0;
-
-    for (let i = 0; i < length; i += 1) {
-        if (Number.isInteger(arr[i])) value += arr[i];
-    }
-
-    return value;
+export function sumIntegers(array = []) {
+    if (!Array.isArray(array)) return 0;
+    return array.reduce((acc, current) => {
+        let sum = acc;
+        if (Number.isInteger(current)) sum += current;
+        return sum;
+    }, 0);
 }
 
 /**
@@ -77,17 +72,19 @@ export function sumIntegers(arr) {
 * @param {string} keyField
 * @param {string} value
 * @returns {Object} Flat object
+* @description Based on the entrance array there is a flat object created,
+* where key and value are defined by the parameters' function
 */
-export function arrayToObject(array, keyField, value) {
+export function arrayToObject(array, key, value) {
     return array.reduce((prev, current) => {
         const newObject = prev;
-        newObject[current[keyField]] = current[value];
+        newObject[current[key]] = current[value];
         return newObject;
     }, {});
 }
 
 /**
-* Returns last element on array
+* Returns last element from array
 * @function
 * @param {Array} array
 * @returns {*} Last element
@@ -98,7 +95,7 @@ export function lastElementInList(array) {
 }
 
 /**
-* Returns first element on array
+* Returns first element from array
 * @function
 * @param {Array} array
 * @returns {*} First element

@@ -25,6 +25,7 @@ describe('App', () => {
     });
     it('Component is rendered', () => {
         expect(wrapper.is(App)).toBe(true);
+        expect(wrapper.isVueInstance()).toBeTruthy();
     });
 
     it('Component is named well', () => {

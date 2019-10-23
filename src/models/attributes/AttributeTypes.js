@@ -3,7 +3,7 @@
 import AttributeTypes from '@/defaults/attributes/main';
 
 /**
-* Check is attribute has options
+* Check if attribute has options
 * @function
 * @param {string} type
 * @returns {boolean}
@@ -13,7 +13,7 @@ export function hasOptions(type) {
 }
 
 /**
-* Check is attribute has placeholder
+* Check if attribute has placeholder
 * @function
 * @param {string} type
 * @returns {boolean}
@@ -27,7 +27,7 @@ export function hasPlaceholder(type) {
 }
 
 /**
-* Check is attribute has params
+* Check if attribute has parameters
 * @function
 * @param {string} type
 * @returns {boolean}
@@ -42,12 +42,12 @@ export function hasParams(type) {
 }
 
 /**
-* Returns options for attribute type
+* Returns option for attribute type
 * @function
 * @param {string} type
 * @param {Object} data
 * @returns {Array} Array with options
-* @description TEST - Try use it.each
+* @description TEST - Try use `it.each`
 */
 export function getParamsOptionsForType(type, data) {
     switch (type) {
@@ -69,7 +69,7 @@ export function getParamsOptionsForType(type, data) {
 * @function
 * @param {string} type
 * @returns {string}
-* @description TEST - Try use it.each
+* @description TEST - Try use `it.each`
 */
 export function getIcon(type) {
     switch (type) {
@@ -101,7 +101,7 @@ export function getIcon(type) {
 * @function
 * @param {string} type
 * @returns {string}
-* @description TEST - Try use it.each
+* @description TEST - Try use `it.each`
 */
 export function getParamsKeyForType(type) {
     switch (type) {

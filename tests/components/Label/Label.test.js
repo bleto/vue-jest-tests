@@ -14,6 +14,7 @@ describe('Label/Label', () => {
 
     it('Component is rendered', () => {
         expect(wrapper.is(Label)).toBe(true);
+        expect(wrapper.isVueInstance()).toBeTruthy();
     });
 
     it('Component is named well', () => {
