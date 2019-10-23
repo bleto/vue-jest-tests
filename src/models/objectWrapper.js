@@ -1,6 +1,16 @@
 /** @module objectWrapper */
 
 /**
+* Check if object is empty
+* @function
+* @param {Object} object
+* @returns {boolean}
+*/
+export function isEmpty(obj) {
+    return !(Object.keys(obj).length);
+}
+
+/**
  * Returns key by value in the object
  * @function
  * @param {Object} object
@@ -100,16 +110,6 @@ export function getValuesByKeys(object, keys) {
 */
 export function getMaxKeyValue(object) {
     return Math.max(...Object.keys(object)) + 1;
-}
-
-/**
-* Check if object is empty
-* @function
-* @param {Object} object
-* @returns {boolean}
-*/
-export function isEmpty(obj) {
-    return !(Object.keys(obj).length);
 }
 
 /**

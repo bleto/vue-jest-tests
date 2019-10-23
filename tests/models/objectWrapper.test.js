@@ -1,4 +1,5 @@
 import {
+    isEmpty,
     getKeyByValue,
     getNestedObjectByKeyWithValue,
     objectToArray,
@@ -6,11 +7,23 @@ import {
     getKeysByValues,
     getValuesByKeys,
     getMaxKeyValue,
-    isEmpty,
     removeFromObjectByKey,
 } from '@/models/objectWrapper';
 
 const obj = { test: 1, jest: 2 };
+
+describe('objectWrapper/isEmpty', () => {
+    it('Get false when object is not empty', () => {
+        const fun = isEmpty(obj);
+        expect(fun).toBeFalsy();
+    });
+
+    it('Get true when object is empty', () => {
+        const localObj = {};
+        const fun = isEmpty(localObj);
+        expect(fun).toBeTruthy();
+    });
+});
 
 describe('objectWrapper/getKeyByValue', () => {
     it('Get key by value when value is exist', () => {
@@ -105,20 +118,6 @@ describe('objectWrapper/getMaxKeyValue', () => {
         const localObj = { 5: 'a', 3: 'r', 9: 'w' };
         const fun = getMaxKeyValue(localObj);
         expect(fun).toBe(10);
-    });
-});
-
-
-describe('objectWrapper/isEmpty', () => {
-    it('Get false when object is not empty', () => {
-        const fun = isEmpty(obj);
-        expect(fun).toBeFalsy();
-    });
-
-    it('Get true when object is empty', () => {
-        const localObj = {};
-        const fun = isEmpty(localObj);
-        expect(fun).toBeTruthy();
     });
 });
 
